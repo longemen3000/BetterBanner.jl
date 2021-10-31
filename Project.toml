@@ -1,0 +1,13 @@
+name = "BetterBanner"
+uuid = "cc801133-483a-4d8c-9d65-b123c611a06a"
+authors = ["longemen3000 <longemen3000@gmail.com> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
