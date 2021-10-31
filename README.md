@@ -35,7 +35,7 @@ it comes with some text overflow protection:
 
 ## Usage
 
-At the moment, copy BetterBanner.jl and add this to your `.julia//config//startup.jl` file (if the file or directory is not there, create it first):
+At the moment, copy `src//BetterBanner.jl` and add the file to your `.julia//config//startup.jl` file (if the file or directory is not there, create it first):
 
 ```julia
 #startup.jl
