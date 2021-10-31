@@ -8,9 +8,11 @@ This package was done to solve two issues with the start banner (`Base.banner()`
 2. The current banner overflows easily. I have a terrible programming enviroment (by choice) where i choose to have a long, narrow terminal screen, and the display quality of the banner suffers each time. The fact that i saw some julia users on mobile phones (!!) with the same problem, pushed me over the edge to do this.
 
 Lets see the current situation:
+
 ![original banner, with enouth space](images/original.PNG)
 
 Seems right, but sometimes, i really want to start julia on a narrow terminal:
+
 ![original banner, with not enouth space](images/original_overflow.PNG)
 
 ## The Solution
@@ -22,9 +24,13 @@ The package (or file, this is only one file with no dependencies,wrapped in a pa
 [new banner, with space](images/new.PNG)
 
 it comes with some text overflow protection:
+
 ![new banner, overflow](images/new_overflow1.PNG)
+
 ![new banner, more overflow](images/new_overflow2.PNG)
+
 ![new banner, too much overflow](images/new_overflow3.PNG)
+
 ![new banner, insane overflow](images/new_overflow4.PNG)
 
 ## Usage
