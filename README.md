@@ -21,7 +21,7 @@ Enter BetterBanner.jl.
 
 The package (or file, this is only one file with no dependencies,wrapped in a package for convenience) replaces the current banner art with one done with braille unicode:
 
-[new banner, with space](images/new.PNG)
+![new banner, with space](images/new.PNG)
 
 it comes with some text overflow protection:
 
