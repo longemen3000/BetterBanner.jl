@@ -19,11 +19,11 @@ Seems right, but sometimes, i really want to start julia on a narrow terminal:
 
 Enter BetterBanner.jl.
 
-The package (or file, this is only one file with no dependencies,wrapped in a package for convenience) replaces the current banner art with one done with braille unicode:
+The package replaces the current banner art with one done with braille unicode:
 
 ![new banner, with space](images/new.PNG)
 
-it comes with some text overflow protection:
+It comes with some text overflow protection:
 
 ![new banner, overflow](images/new_overflow1.PNG)
 
@@ -33,21 +33,32 @@ it comes with some text overflow protection:
 
 ![new banner, insane overflow](images/new_overflow4.PNG)
 
+As with the original `Base.banner` function, there is also a `--color=no` mode:
+
+![new banner, no color](images/new_nocolor.PNG)
+
 ## Usage
 
-At the moment, copy `src//BetterBanner.jl` and add the file to your `.julia//config//startup.jl` file (if the file or directory is not there, create it first):
-
+Add this package:
 ```julia
-#startup.jl
-include("BetterBanner.jl")
-Base.banner(io=stdout) = BetterBanner.banner(io)
+pkg>add https://github.com/longemen3000/BetterBanner.jl
 ```
-and that it.
-
-If the package is registered in the future, you can do:
+and add this line to your `.julia//config//startup.jl` file (if the file or directory is not there, create it first): 
 
 ```julia
 #startup.jl
-using BetterBanner
-Base.banner(io=stdout) = BetterBanner.banner(io)
+import BetterBanner
+```
+And that's it. If you are concerned about performance, you can test it by:
+
+```julia
+#startup.jl
+@time import BetterBanner
+```
+
+On my laptop, the loading time (julia 1.6.2) is the following:
+
+```
+C:\Users\longemen3000\.julia\dev>julia
+  0.010768 seconds (9.41 k allocations: 790.844 KiB, 55.18% compilation time)
 ```

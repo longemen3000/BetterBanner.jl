@@ -61,6 +61,7 @@ function banner(io = stdout)
         extra = """
         
         $commit_string
+        
         """
     else
         t1 = empty_str
@@ -82,6 +83,7 @@ function banner(io = stdout)
         Ver. $(Base.VERSION) $commit_date
         
         $commit_string
+
         """
     end
 
@@ -109,8 +111,8 @@ function banner(io = stdout)
 
                     $(d3)⢰⣿⣿⡆$(tx)   $(tt1)
                     $(d3)⠈⠛⠛⠁$(tx)   $(tt2)
-     $(d1)⢰⣿⣿⡆$(jl)       ⣴⣾ $(d2)⣾⣿⣷ $(d4)⣾⣿⣷$(tx) $(tt3)  
-     $(d1)⠈⠛⠛⠁$(jl)       ⣿⣿ $(d2)⠙⠛⠋ $(d4)⠙⠛⠋$(tx) $(tt4)
+     $(d1)⢰⣿⣿⡆$(jl)       ⣴⣾$(d2)⢰⣿⣿⡆$(d4)⢰⣿⣿⡆$(tx) $(tt3)  
+     $(d1)⠈⠛⠛⠁$(jl)       ⣿⣿$(d2)⠈⠛⠛⠁$(d4)⠈⠛⠛⠁$(tx) $(tt4)
       ⣿⣿ ⣿⣿  ⣿⣿ ⣿⣿ ⣴⣾ ⣾⠟⠛⣿⣷$(tt5)
       ⣿⣿ ⣿⣿  ⣿⣿ ⣿⣿ ⣿⣿⢀⣴⡾⠋⣿⣿$(tt6)
       ⣿⣿ ⠙⢿⣶⠞⣿⣿ ⣿⣿ ⣿⣿⠈⠻⣷⣶⡿⣿$(tt7)
@@ -120,8 +122,8 @@ function banner(io = stdout)
         print("""  
                     ⢰⠉⠉⡆   $(tt1)
                     ⠈⠒⠒⠁   $(tt2)
-     ⢰⠉⠉⡆       ⣴⣾ ⡎⠉⢱ ⡎⠉⢱ $(tt3)    
-     ⠈⠒⠒⠁       ⣿⣿ ⠑⠒⠊ ⠑⠒⠊ $(tt4)
+     ⢰⠉⠉⡆       ⣴⣾⢰⠉⠉⡆⢰⠉⠉⡆ $(tt3)    
+     ⠈⠒⠒⠁       ⣿⣿⠈⠒⠒⠁⠈⠒⠒⠁ $(tt4)
       ⣿⣿ ⣿⣿  ⣿⣿ ⣿⣿ ⣴⣾ ⣾⠟⠛⣿⣷$(tt5) 
       ⣿⣿ ⣿⣿  ⣿⣿ ⣿⣿ ⣿⣿⢀⣴⡾⠋⣿⣿$(tt6) 
       ⣿⣿ ⠙⢿⣶⠞⣿⣿ ⣿⣿ ⣿⣿⠈⠻⣷⣶⡿⣿$(tt7) 
@@ -129,6 +131,13 @@ function banner(io = stdout)
     $(extra)""")
     end
 
+end
+__precompile__()
+function __init__()
+    @eval begin
+        Base.banner(io::IO=stdout) = BetterBanner.banner(io)
+    end
+end
 end #module
 
 
